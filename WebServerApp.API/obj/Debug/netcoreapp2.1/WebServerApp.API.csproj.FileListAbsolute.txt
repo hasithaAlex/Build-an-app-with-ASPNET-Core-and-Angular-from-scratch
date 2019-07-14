@@ -1,0 +1,14 @@
+D:\Git\Build-an-app-with-ASPNET-Core-and-Angular-from-scratch\WebServerApp.API\bin\Debug\netcoreapp2.1\WebServerApp.API.deps.json
+D:\Git\Build-an-app-with-ASPNET-Core-and-Angular-from-scratch\WebServerApp.API\bin\Debug\netcoreapp2.1\WebServerApp.API.runtimeconfig.json
+D:\Git\Build-an-app-with-ASPNET-Core-and-Angular-from-scratch\WebServerApp.API\bin\Debug\netcoreapp2.1\WebServerApp.API.runtimeconfig.dev.json
+D:\Git\Build-an-app-with-ASPNET-Core-and-Angular-from-scratch\WebServerApp.API\bin\Debug\netcoreapp2.1\WebServerApp.API.dll
+D:\Git\Build-an-app-with-ASPNET-Core-and-Angular-from-scratch\WebServerApp.API\bin\Debug\netcoreapp2.1\WebServerApp.API.pdb
+D:\Git\Build-an-app-with-ASPNET-Core-and-Angular-from-scratch\WebServerApp.API\obj\Debug\netcoreapp2.1\WebServerApp.API.csprojAssemblyReference.cache
+D:\Git\Build-an-app-with-ASPNET-Core-and-Angular-from-scratch\WebServerApp.API\obj\Debug\netcoreapp2.1\WebServerApp.API.csproj.CoreCompileInputs.cache
+D:\Git\Build-an-app-with-ASPNET-Core-and-Angular-from-scratch\WebServerApp.API\obj\Debug\netcoreapp2.1\WebServerApp.API.RazorAssemblyInfo.cache
+D:\Git\Build-an-app-with-ASPNET-Core-and-Angular-from-scratch\WebServerApp.API\obj\Debug\netcoreapp2.1\WebServerApp.API.RazorAssemblyInfo.cs
+D:\Git\Build-an-app-with-ASPNET-Core-and-Angular-from-scratch\WebServerApp.API\obj\Debug\netcoreapp2.1\WebServerApp.API.AssemblyInfoInputs.cache
+D:\Git\Build-an-app-with-ASPNET-Core-and-Angular-from-scratch\WebServerApp.API\obj\Debug\netcoreapp2.1\WebServerApp.API.AssemblyInfo.cs
+D:\Git\Build-an-app-with-ASPNET-Core-and-Angular-from-scratch\WebServerApp.API\obj\Debug\netcoreapp2.1\WebServerApp.API.RazorTargetAssemblyInfo.cache
+D:\Git\Build-an-app-with-ASPNET-Core-and-Angular-from-scratch\WebServerApp.API\obj\Debug\netcoreapp2.1\WebServerApp.API.dll
+D:\Git\Build-an-app-with-ASPNET-Core-and-Angular-from-scratch\WebServerApp.API\obj\Debug\netcoreapp2.1\WebServerApp.API.pdb
