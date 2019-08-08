@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebServerApp.API.Data;
 
 namespace WebServerApp.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
@@ -19,6 +21,7 @@ namespace WebServerApp.API.Controllers
         }
         // GET api/values
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> Get()
         {
             var values = await _context.Values.ToListAsync();
