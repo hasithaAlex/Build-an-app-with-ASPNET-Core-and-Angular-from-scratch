@@ -81,7 +81,7 @@ namespace WebServerApp.API.Controllers
             }
             catch 
             {
-                return StatusCode(500,"Error")
+                return StatusCode(500,"Error");
             }
         }
     }
