@@ -46,34 +46,43 @@ namespace WebServerApp.API.Controllers
         [HttpPost("Login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
-            var userFromRepo = await _repo.Login(userForLoginDto.UserName.ToLower(), userForLoginDto.Password);
-
-            if (userFromRepo == null)
-                return Unauthorized();
-
-            var claims = new[]
+            try
             {
-                new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
-                new Claim(ClaimTypes.Name, userFromRepo.Username)
-            };
+                var userFromRepo = await _repo.Login(userForLoginDto.UserName.ToLower(), userForLoginDto.Password);
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8
-                        .GetBytes(_config.GetSection("AppSettings:Token").Value));
-        
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature); 
+                if (userFromRepo == null)
+                    return Unauthorized();
 
-            var tokenDescriptor = new SecurityTokenDescriptor{
-                Subject = new ClaimsIdentity(claims),
-                Expires = System.DateTime.Now.AddDays(1),
-                SigningCredentials = creds
-            };
+                var claims = new[]
+                {
+                    new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
+                    new Claim(ClaimTypes.Name, userFromRepo.Username)
+                };
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var token = tokenHandler.CreateToken(tokenDescriptor);
+                var key = new SymmetricSecurityKey(Encoding.UTF8
+                            .GetBytes(_config.GetSection("AppSettings:Token").Value));
 
-            return Ok(new {
-                token = tokenHandler.WriteToken(token)
-            });
+                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+
+                var tokenDescriptor = new SecurityTokenDescriptor
+                {
+                    Subject = new ClaimsIdentity(claims),
+                    Expires = System.DateTime.Now.AddDays(1),
+                    SigningCredentials = creds
+                };
+
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var token = tokenHandler.CreateToken(tokenDescriptor);
+
+                return Ok(new
+                {
+                    token = tokenHandler.WriteToken(token)
+                });
+            }
+            catch 
+            {
+                return StatusCode(500,"Error")
+            }
         }
     }
 }
