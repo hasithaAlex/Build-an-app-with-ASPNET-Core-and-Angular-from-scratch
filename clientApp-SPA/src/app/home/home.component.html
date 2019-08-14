@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <div style="text-align: center" *ngIf="!registerMode">
+  <div style="text-align: center" *ngIf="!registerMode" class="animated fadeInUp">
     <h1>Find your match</h1>
     <p class="lead">Come on in to view your matches... All you need to do is sign up!</p>
     <div class="text-center">
@@ -8,7 +8,7 @@
     </div>
   </div>
 
-  <div class="container" *ngIf="registerMode">
+  <div class="container" *ngIf="registerMode" class="animated fadeIn">
     <div class="row justify-content-center">
       <div class="col-4">
         <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
