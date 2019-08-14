@@ -50,8 +50,8 @@ namespace WebServerApp.API.Controllers
             var userFromRepo = await _repo.Login(userForLoginDto.UserName.ToLower(), userForLoginDto.Password);
 
             if (userFromRepo == null)
-                throw new Exception("User can\'t find");
-                // return Unauthorized();
+                return Unauthorized();
+                // throw new Exception("User can\'t find");
 
             var claims = new[]
             {
