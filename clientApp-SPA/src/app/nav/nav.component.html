@@ -1,39 +1,43 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark"> <!-- fixed-top -->
-  <a class="navbar-brand" href="#">ART Linkedin</a>
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item active">
-      <a class="nav-link" href="#"
-        >Home
-        <!-- <span class="sr-only">(current)</span> -->
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Matches</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Messages</a>
-    </li>
-  </ul>
-
-  <form *ngIf="!loggedIn()" class="form-inline my-2 my-lg-0" #loginForm="ngForm" (ngSubmit)="login()">
-    <input class="form-control mr-sm-2" required type="text" name="username" 
-        placeholder="User Name" [(ngModel)]="model.username"/>
-    <input class="form-control mr-sm-2" required type="password" name="password" 
-        placeholder="Password"  [(ngModel)]="model.password"/>
-    <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">
-      Login
-    </button>
-  </form>
-
-  <div *ngIf="loggedIn()" class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" (click)="logout()">
-        Welcome {{authService.decodedToken?.unique_name | titlecase}}
-      </button>
-      
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Edit Profile</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Logout</a>
-      </div>
-    </div>
+  <div class="container">
+      <a class="navbar-brand" href="#">ART Linkedin</a>
+      <ul class="navbar-nav mr-auto" *ngIf="loggedIn()">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"
+            >Home
+            <!-- <span class="sr-only">(current)</span> -->
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Matches</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Messages</a>
+        </li>
+      </ul>
+    
+      <form *ngIf="!loggedIn()" class="form-inline my-2 my-lg-0" #loginForm="ngForm" (ngSubmit)="login()">
+        <input class="form-control mr-sm-2" required type="text" name="username" 
+            placeholder="User Name" [(ngModel)]="model.username"/>
+        <input class="form-control mr-sm-2" required type="password" name="password" 
+            placeholder="Password"  [(ngModel)]="model.password"/>
+        <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">
+          Login
+        </button>
+      </form>
+    
+      <div *ngIf="loggedIn()" class="dropdown" dropdown>
+          <button class="btn btn-secondary dropdown-toggle" dropdownToggle>
+            Welcome {{authService.decodedToken?.unique_name | titlecase}}
+          </button>
+          
+          <div class="dropdown-menu mt-1" *dropdownMenu>
+            <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Edit Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" (click)="logout()">
+              <i class="fa fa-sign-out"></i> Logout
+            </a>
+          </div>
+        </div>
+  </div>
 </nav>
