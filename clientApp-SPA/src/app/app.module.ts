@@ -16,6 +16,7 @@ import { RegisterComponent } from './register/register.component';
 import { MemberListComponent } from './member-list/member-list.component';
 import { ListComponent } from './list/list.component';
 import { MessagesComponent } from './messages/messages.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { MessagesComponent } from './messages/messages.component';
    providers: [
       AuthService,
       ErrorInterceptorProvider,
-      AlertifyService
+      AlertifyService,
+      AuthGuard
    ],
    bootstrap: [
       AppComponent
