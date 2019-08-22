@@ -1,7 +1,10 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebServerApp.API.Data;
+using WebServerApp.API.Dtos;
 
 namespace WebServerApp.API.Controllers
 {
@@ -11,22 +14,28 @@ namespace WebServerApp.API.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserRepository _repo;
+        private readonly IMapper _mapper;
 
-        public UserController(IUserRepository repo){
+        public UserController(IUserRepository repo, IMapper mapper)
+        {
+            _mapper = mapper;
             _repo = repo;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetUsers(){
+        public async Task<IActionResult> GetUsers()
+        {
             var users = await _repo.GetUsers();
-            return Ok(users);
+            var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
+            return Ok(usersToReturn);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUser(int id)
         {
             var user = await _repo.GetUser(id);
-            return Ok(user);    
+            var userToReturn = _mapper.Map<UserForDetailedDto>(user);
+            return Ok(userToReturn);
         }
     }
 }
