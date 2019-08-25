@@ -11,12 +11,12 @@ namespace WebServerApp.API.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UsersController : ControllerBase
     {
         private readonly IUserRepository _repo;
         private readonly IMapper _mapper;
 
-        public UserController(IUserRepository repo, IMapper mapper)
+        public UsersController(IUserRepository repo, IMapper mapper)
         {
             _mapper = mapper;
             _repo = repo;
