@@ -27,6 +27,8 @@ namespace WebServerApp.API.Helpers
             });
             
             CreateMap<Photo, PhotosForDto>();
+
+            CreateMap<UserForUpdateDto, User>();
         }
     }
 }

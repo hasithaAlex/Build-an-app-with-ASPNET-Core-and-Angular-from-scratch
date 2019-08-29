@@ -1,8 +1,8 @@
 <div class="container mt-5">
   <div style="text-align: center" *ngIf="!registerMode" class="animated fadeInUp">
     <h1>Creative Art and Fine Art</h1>
-    <p class="lead">Art is a diverse range of human activities in creating visual, <br>auditory or performing artifacts (artworks), expressing the author's <br>imaginative, conceptual ideas, or technical skill, intended to be appreciated <br>for their beauty or emotional power.!</p>
-    <div class="text-center">
+    <p class="lead ">Art is a diverse range of human activities in creating visual, <br>auditory or performing artifacts (artworks), expressing the author's <br>imaginative, conceptual ideas, or technical skill, intended to be appreciated <br>for their beauty or emotional power.!</p>
+    <div class="text-center" *ngIf="!loggedIn()">
       <button class="btn btn-primary btn-lg mr-2" (click)="RegisterToggle()">Register</button>
       <button class="btn btn-info btn-lg">Learn more</button>
     </div>

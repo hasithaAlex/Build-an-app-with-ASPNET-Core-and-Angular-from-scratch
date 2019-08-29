@@ -10,6 +10,7 @@ import { MemberListResolver } from './resolvers/member-list.resolver';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { MemberEditResolver } from './resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './guards/prevent-unsaved-changes.guard';
+import { ArtwallComponent } from './artwall/artwall.component';
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,6 +19,7 @@ export const appRoutes: Routes = [
     runGuardsAndResolvers: 'always',
     canActivate: [AuthGuard],
     children: [
+      { path: 'artwall', component: ArtwallComponent},
       { path: 'members', component: MemberListComponent, resolve: {users: MemberListResolver} },
       { path: 'members/:id', component: MemberDetailComponent, resolve: {user: MemberDetailResolver} },
       { path: 'member/edit',
